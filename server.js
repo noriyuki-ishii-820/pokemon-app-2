@@ -3,7 +3,7 @@ const cors = require('cors');
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const routes = require("./routes");
+//const routes = require("./routes");
 const passport = require("passport");
 const app = express();
 const dotenv = require("dotenv");
@@ -47,10 +47,10 @@ mongoose.connect( process.env.MONGODB_URI || mongoURI, {
 app.use(passport.initialize());
 
 // Passport config
-require("./config/passport")(passport);
+//require("./config/passport")(passport);
 
 // Routes
-app.use(routes);
+//app.use(routes);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
