@@ -26,6 +26,7 @@
   "homepage": "https://github.com/noriyuki-ishii-820/pokemon-app-2#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
     "concurrently": "^6.0.2",
     "cors": "^2.8.5",
     "dotenv": "^8.4.0",
@@ -33,6 +34,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.12.7",
     "morgan": "^1.10.0",
-    "passport": "^0.4.1"
+    "passport": "^0.4.1",
+    "react-bootstrap": "^1.5.2",
+    "react-router-dom": "^5.2.0"
   }
 }
