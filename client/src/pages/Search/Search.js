@@ -3,6 +3,7 @@ import validator from "validator";
 
 function Search() {
   const [data, setData] = useState([]);
+  const [inputError, setInputError] = useState(false);
   const [input, setInput] = useState("");
   const URL = "https://pokeapi.co/api/v2/pokemon?limit=2000";
 
@@ -31,6 +32,7 @@ function Search() {
       console.log("it's a word!");
     } else {
       console.log("to be validated");
+      setInputError(true)
     }
   };
 
@@ -59,6 +61,11 @@ function Search() {
           Search
         </button>
       </form>
+      {inputError ? 
+      <div>
+        <h5>Input error: please put a valid input (number between 1 and {data.length} or alphabets)</h5>
+      </div>
+      : null}
     </div>
   );
 }
