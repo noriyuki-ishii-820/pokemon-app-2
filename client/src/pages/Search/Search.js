@@ -71,7 +71,6 @@ function Search() {
       setInputError(false);
     } else if (input.includes("-") ) {
       setInputError(false);
-      console.log("this includes a - ")
       getByAlphabet(input);
     } else if (validator.isAlpha(input)) {
       getByAlphabet(input);
