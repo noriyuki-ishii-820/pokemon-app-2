@@ -5,6 +5,7 @@ function Search() {
   const [data, setData] = useState([]);
   const [inputError, setInputError] = useState(false);
   const [input, setInput] = useState("");
+  const [pokemon, setPokemon] = useState("")
   const URL = "https://pokeapi.co/api/v2/pokemon?limit=2000";
 
   useEffect(() => {
@@ -15,6 +16,27 @@ function Search() {
     };
     getPokemon();
   }, []);
+
+  const getDetails = async (result) => {
+    const response = await fetch(result.url)
+        const jsonData = await response.json();
+        setPokemon(jsonData)
+        console.log(jsonData)
+  }
+
+  const getByNumber = (input) => {
+    data && data.map((result, i) => {
+      if (Number(i + 1)  === Number(input)) {
+          getDetails(result)
+    }});
+  }
+
+  const getByAlphabet = (input) => {
+    data && data.map((result) => {
+      if (result.name === input.toString().toLowerCase()) {
+          getDetails(result)
+    }});
+  }
 
   const SearchInput = (e) => {
     e.preventDefault();
@@ -27,11 +49,10 @@ function Search() {
         max: data.length,
       })
     ) {
-      console.log("it's a valid number!", input);
+      getByNumber(input)
     } else if (validator.isAlpha(input)) {
-      console.log("it's a word!");
+      getByAlphabet(input)
     } else {
-      console.log("to be validated");
       setInputError(true)
     }
   };
