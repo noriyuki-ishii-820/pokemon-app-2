@@ -1,8 +1,35 @@
 import React  from 'react'
 import { Bar,PolarArea } from 'react-chartjs-2'
+import {addNewPokemon} from "../../Functions/addNewPokemonFunctions"
 
 
 const Result = ({ key, name, height,weight,abilities, sprites,stats,types }) => {
+
+    function addToTeam (e) {
+        e.preventDefault();
+
+        var secondType;
+
+        if (types && types.length === 1) {
+            var secondType = "none";
+        } else {
+            var secondType = types && types[1].type.name;
+        }
+    
+        const pokemonData = {
+            name: name, 
+            img: sprites.front_default,
+            type1: types[0].type.name,
+            type2: secondType,
+        }
+
+        console.log(pokemonData)
+
+        addNewPokemon(pokemonData).then(res => {
+            console.log("data sent is : " + pokemonData)
+        })
+    
+    }
 
     const totalStat = stats && stats.reduce((total, each) => total + each.base_stat, 0)
 
@@ -67,7 +94,7 @@ return (
                 </div>
                 
                 <ul className="pokeDataList">
-                    <li id={key}>Name: {name && name.charAt(0).toUpperCase() + name.slice(1)}</li>
+                    <li id={key}>Name: {name && name.charAt(0).toUpperCase() + name.slice(1)} <button onClick={addToTeam}>Add to Team</button></li>
                     <li>{types && types.length === 1 ? (
                         <span>Type: {types[0].type.name} </span>
                     ) : (
