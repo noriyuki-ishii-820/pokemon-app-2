@@ -1,6 +1,6 @@
 import React  from 'react'
 import { Bar,PolarArea } from 'react-chartjs-2'
-import {addNewPokemon} from "../../Functions/addNewPokemonFunctions"
+import {newPokemon} from "../../Functions/addNewPokemonFunctions"
 
 
 const Result = ({ key, name, height,weight,abilities, sprites,stats,types }) => {
@@ -25,7 +25,7 @@ const Result = ({ key, name, height,weight,abilities, sprites,stats,types }) => 
 
         console.log(pokemonData)
 
-        addNewPokemon(pokemonData).then(res => {
+        newPokemon(pokemonData).then(res => {
             console.log("data sent is : " + pokemonData)
         })
     

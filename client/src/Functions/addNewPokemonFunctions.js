@@ -1,13 +1,15 @@
 import axios from "axios";
 
-export const addNewPokemon = data => {
- 
+export const newPokemon = pokeData => {
     return axios
     .post('/api/addNewPokemon', {
-        name: data.name, 
-        img: data.img,
-        type1: data.type1,
-        type2: data.type2,
+        name: pokeData.name, 
+        img: pokeData.img,
+        type1: pokeData.type1,
+        type2: pokeData.type2,
+    })
+    .then(res => {
+        return res.data;
     })
     .catch(err => {
         console.log(err);

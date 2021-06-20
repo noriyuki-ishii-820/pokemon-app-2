@@ -4,6 +4,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
+const passport = require("passport");
 const app = express();
 const dotenv = require("dotenv");
 
@@ -42,8 +43,7 @@ mongoose.connect( process.env.MONGODB_URI || mongoURI, {
 .then(() => console.log("MongoDB successfully connected"))
 .catch(err => console.log("Error", err));
 
-
-//Routes
+// Routes
 app.use(routes);
 
 app.use((req, res, next) => {
