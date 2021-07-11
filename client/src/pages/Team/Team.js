@@ -13,7 +13,7 @@ function Team() {
       }, []);
 
     function removePokemon (e) {
-        var result = confirm("Are you sure to remove this Pokemon from the team?")
+        var result = window.confirm("Are you sure to remove this Pokemon from the team?")
         let pokemonId = e.target.attributes.getNamedItem("value").value
 
         console.log(pokemonId)
