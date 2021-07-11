@@ -23,10 +23,9 @@ const Result = ({ key, name, height,weight,abilities, sprites,stats,types }) => 
             type2: secondType,
         }
 
-        console.log(pokemonData)
-
         newPokemon(pokemonData).then(res => {
             console.log("data sent is : " + pokemonData)
+            alert ("Pokemon added!")
         })
     
     }

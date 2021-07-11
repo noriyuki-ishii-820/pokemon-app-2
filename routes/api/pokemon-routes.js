@@ -23,4 +23,20 @@ router.post('/api/addNewPokemon', (req, res) => {
     })
 })
 
+// delete pokemon
+
+router.delete("/api/deletePokemon/:id", (req, res) => {
+
+    Pokemon.findOneAndRemove({
+        _id: req.params.id,
+    })
+        .then(response => {
+            console.log("removed successfully")
+            res.json(response)
+        })
+        .catch(err => {
+            res.send('error: ' + err);
+        })
+})
+
 module.exports = router;
